@@ -1,2 +1,23 @@
-/node_modules
+# Dependências
+node_modules/
+
+# Configurações do ambiente
 .env
+
+# Logs e cache
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+tmp/
+coverage/
+
+# Configurações do sistema
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Prisma
+prisma/migrations/
