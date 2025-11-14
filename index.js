@@ -1,9 +1,16 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 
+require('dotenv').config();
+const JWT_SECRET = process.env.JWT_SECRET;
+
 const app = express();
 const prisma = new PrismaClient();
 const PORT = 3000; 
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+
 
 app.use(express.json());
 
@@ -110,11 +117,6 @@ app.listen(PORT, () => {
 });
 
 // Autenticação de Login
-
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-
-const JWT_SECRET = 'segredo_super_secreto';
 
 app.post('/clientes', async (req, res) => {
     try{
