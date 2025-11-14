@@ -4,6 +4,8 @@ const { PrismaClient } = require('@prisma/client');
 require('dotenv').config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
+const cors = require('cors');
+
 const app = express();
 const prisma = new PrismaClient();
 const PORT = 3000; 
@@ -13,7 +15,7 @@ const jwt = require('jsonwebtoken');
 
 
 app.use(express.json());
-
+app.use (cors());
 // Autenticação com Middleware com token
 function verificarToken(req, res, next) {
     const authHeader = req.headers['authorization'];
