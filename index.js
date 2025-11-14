@@ -137,8 +137,8 @@ app.post('/clientes', async (req, res) => {
     });
 
     res.status(201).json({ mensagem: 'Cliente cadastrado com sucesso.' });
-    } catch (erro) {
-        console.error('Erro ao cadastrar o cliente:', erro);
+    } catch (error) {
+        console.error('Erro ao cadastrar o cliente:', error);
         res.status(500).json({ erro: 'Erro ao cadastrar cliente.'});
     }
 });
@@ -180,8 +180,8 @@ app.get('/clientes', verificarToken, async (req, res) => {
             select: { id: true, nome: true, email: true, criadoEm: true },
         });
         res.json(clientes);
-    }   catch (erro) {
-        console.erro('Erro ao buscar os clientes:', erro);
+    }   catch (error) {
+        console.error('Erro ao buscar os clientes:', error);
         res.status(500).json({ erro: 'Erro ao buscar clientes.'});
     }
 })
@@ -210,8 +210,8 @@ app.put('/clientes/:id', verificarToken, async (req, res) => {
         });
 
         res.json({ mensagem: 'Cliente atualizado com sucesso!', clienteAtualizado});
-    }   catch (erro) {
-        console.error('Erro ao atualizar o cliente:', erro);
+    }   catch (error) {
+        console.error('Erro ao atualizar o cliente:', error);
         res.status(500).json({ erro: 'Erro ao atualizar o cliente'});
     }
 });
@@ -233,8 +233,8 @@ app.delete('/clientes/:id', verificarToken, async (req, res) => {
         });
 
         res.json({ mensagem: 'Cliente excluido com sucesso.'});
-    }   catch (erro) {
-        console.erro('Erro ao excluir o cliente:', erro);
+    }   catch (error) {
+        console.error('Erro ao excluir o cliente:', error);
         res.status(500).json({ erro: 'Erro ao excluir o cliente.'});
     }
 });
